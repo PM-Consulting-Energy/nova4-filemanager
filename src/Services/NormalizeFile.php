@@ -58,7 +58,7 @@ class NormalizeFile
             'name' => $name,
             'mime' => $mime,
             'mimeType' => $mimeType,
-            'type' => filetype($this->path),
+            'type' => $this->storage->directoryExists($this->path) ? 'dir' : 'file',
             'path' => $this->storagePath,
             'fullPath' => $this->path,
             'size' => $size,
@@ -67,7 +67,8 @@ class NormalizeFile
             'ext' => $this->file->getExtension(),
             'lastModified' => $lastModified,
             'lastModifiedText' => $lastModified ? Carbon::createFromTimestamp($lastModified)->format('Y-m-d H:i:s') : null,
-            'visibility' => $this->storage->getVisibility($this->storagePath),
+//            'visibility' => $this->storage->getVisibility($this->storagePath),
+            'visibility' => 'private'
         ]);
 
         $data = $this->setDataByType($data);
