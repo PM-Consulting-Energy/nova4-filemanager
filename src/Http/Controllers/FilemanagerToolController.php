@@ -127,6 +127,14 @@ class FilemanagerToolController extends Controller
     }
 
     /**
+     * @param Request $request
+     */
+    public function inertiaMainRoute(Request $request)
+    {
+        return inertia('NovaFilemanager');
+    }
+
+    /**
      * Get rules in array way.
      *
      * @param   string  $rules

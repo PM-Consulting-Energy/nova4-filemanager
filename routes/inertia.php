@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Stepanenko3\NovaFilemanager\Http\Controllers\FilemanagerToolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,4 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 |
 */
 
-Route::get('/', function (NovaRequest $request) {
-    return inertia('NovaFilemanager');
-});
+Route::get('/', [FilemanagerToolController::class, 'inertiaMainRoute']);
